@@ -42,6 +42,22 @@ Install all requirements:
 
 `pip3 install -r requirements.txt`
 
+You have to configure database for run server locally:
+
+In `bookstore/settings.py`
+uncomment
+
+`DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}`
+
+and comment
+`DATABASES = {}
+DATABASES['default'] = dj_database_url.config(conn_max_age=600)`
+
 Now you need to migrate the database:
 
 `python3 manage.py makemigrations`
