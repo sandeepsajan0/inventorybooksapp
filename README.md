@@ -34,7 +34,9 @@ Using Python3.
 
 Create a virtual environment.
 
-Clone the repo.
+Clone the repo:
+
+`git clone https://github.com/sandeepsajan0/inventorybooksapp.git`
 
 Install all requirements:
 
@@ -52,5 +54,6 @@ Now you can run the sever:
 
 hurray! you app is running on: http://127.0.0.1:8000/
 
-*Live Demo*
+**Live Demo**
+
 It is live on heroku. https://inventorybooksapp.herokuapp.com/
