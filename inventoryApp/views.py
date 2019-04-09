@@ -63,7 +63,7 @@ def bookslist(request):
         else:
             book.copies = book.copies - 1
             book.save()
-        return redirect('')
+        return redirect('/')
 
     return render(request, 'booklist.html',{'passdata':passdata})
 
