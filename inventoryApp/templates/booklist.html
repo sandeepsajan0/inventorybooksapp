@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}">
+    <title>BookStore</title>
+</head>
+<body>
+    
+
+    <div class = "container">
+        <div class="AppName">
+            <h1>Inventory books</h1>
+        
+        <form action="#" method="get">
+            <input type="text" name="mytextbox" />
+            <input type="Submit" class="btn" value="Search" name="search">
+        </form>
+        </div>
+        <div class="InventoryBooks">
+            {% if newbooks == undefined %}
+            {% for book in passdata %}
+                <div class="EveryBook">
+                    
+                    <h2><a href={{book.link}} target="_blank">{{book.title}} </a></h2>
+                    
+                    <p>ID: {{book.id}} with copies {{book.copies}}</p>
+                    <form action="#" method="get">
+                        <input type="hidden" name="bookid" value="{{book.id}}">
+                        <input type="Submit" class="btn" value="Add" name="AddCopy" />
+                        <input type="Submit" class="btn" value="Remove" name="Delete">
+                    </form>
+                </div>
+            {% endfor %}
+            {% endif %}
+            {% for book in newbooks %}
+                <div class="EveryBook">
+                    <h2><a href={{book.link}} target="_blank">{{book.title}} </a></h2>
+                <p>ID: {{book.id}} </p>
+                {% if book.id in idlist %}
+                    <form action="#" method="get">
+                    <input type="hidden" name="bookid" value="{{book.id}}">
+                    <input type="Submit" class="btn" value="Add" name="AddCopy" />
+                    <input type="Submit" class="btn" value="Remove" name="Delete">
+                    </form>
+                    <b> It is already present in inventory</b>
+                </br>
+                {% else %}
+                    <form action="#" method="get">
+                    <input type="hidden" name="bookid" value="{{book.id}}">
+                    <input type="hidden" name="booktitle" value="{{book.title}}">
+                    <input type="hidden" name="booklink" value="{{book.link}}">
+                    <input type="Submit" class="btn" value="Add" name="Add" />
+                    </form>
+                {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</body>
+</html>

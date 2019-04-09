@@ -1,0 +1,1 @@
+web: gunicorn inventorybooksapp.wsgi --log-level=info --log-file -
