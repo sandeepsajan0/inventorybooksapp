@@ -6,7 +6,7 @@ It contains the list of book and also have information about its copies and book
   
 
 
-##Features
+## Features
 
 1. User can add a book or also copy of a existing book to the bookstore.
 
@@ -22,26 +22,32 @@ It contains the list of book and also have information about its copies and book
 
 7. User also able to see the copies of a book and ID of book provided by Google Book Api.
 
-###Assumption
+### Assumption
 
 In start bookstore have no book. User can add books to the bookstore via search box.
+
 Book will not be shown if there is no copy(0) of that book(out of stock).
+
 Using Python3.
 
-###Installation
+### Installation
 
 Create a virtual environment.
 
 Clone the repo.
 
 Install all requirements:
+
 `pip3 install -r requirements.txt`
 
 Now you need to migrate the database:
+
 `python3 manage.py makemigrations`
+
 `python3 manage.py migrate`
 
 Now you can run the sever:
+
 `python3 manage.py runserver`
 
 hurray! you app is running on: http://127.0.0.1:8000/
