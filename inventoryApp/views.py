@@ -40,7 +40,7 @@ def bookslist(request):
         """
         q=Books(title=request.GET.get('booktitle'),readlink=request.GET.get('booklink'),copies=1,bookid=request.GET.get('bookid'))
         q.save()
-        return redirect('/bookstore')
+        return redirect('')
 
     if request.GET.get('AddCopy'):
         """
@@ -51,7 +51,7 @@ def bookslist(request):
         copies+=1
         book.copies = copies
         book.save()
-        return redirect('/bookstore')
+        return redirect('')
 
     if request.GET.get('Delete'):
         """
@@ -63,7 +63,7 @@ def bookslist(request):
         else:
             book.copies = book.copies - 1
             book.save()
-        return redirect('/bookstore')
+        return redirect('')
 
     return render(request, 'booklist.html',{'passdata':passdata})
 
