@@ -17,9 +17,7 @@ def bookslist(request):
         i+=1
 
     if request.GET.get('search'):
-        """
-        Fetch and show books for given query and also indicate weather it is exist in inventory or not.
-        """
+        # Fetch and show books for given query and also indicate weather it is exist in inventory or not.
         query = request.GET.get('mytextbox')
         print(query)
         r= requests.get(url="https://www.googleapis.com/books/v1/volumes?q="+ query)
@@ -35,17 +33,13 @@ def bookslist(request):
         return render(request, 'booklist.html', {'passdata':passdata,'newbooks':newbooks,'idlist':idlist})
 
     if request.GET.get('Add'):
-        """
-        Add new Book to the inventory.
-        """
+        # Add new Book to the inventory.
         q=Books(title=request.GET.get('booktitle'),readlink=request.GET.get('booklink'),copies=1,bookid=request.GET.get('bookid'))
         q.save()
         return redirect('/')
 
     if request.GET.get('AddCopy'):
-        """
-        Update copies on adding existing book.
-        """
+        #Update copies on adding existing book.
         book = Books.objects.get(bookid=request.GET.get('bookid'))
         copies = book.copies
         copies+=1
@@ -54,13 +48,9 @@ def bookslist(request):
         return redirect('/')
 
     if request.GET.get('Delete'):
-        """
-        Remove a book copy from the inventory.
-        """
+        #Remove a book copy from the inventory.
         book = Books.objects.get(bookid=request.GET.get('bookid'))
-        if book.copies==1:
-            book.delete()
-        else:
+        if book.copies > 0:
             book.copies = book.copies - 1
             book.save()
         return redirect('/')
