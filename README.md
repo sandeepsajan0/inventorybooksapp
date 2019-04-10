@@ -22,11 +22,11 @@ It contains the list of book and also have information about its copies and book
 
 7. User also able to see the copies of a book and ID of book provided by Google Book Api.
 
+8. If a book already existed in inventory but now its copies becomes 0 then it will show "Out of Stock".
+
 ### Assumption
 
 In start bookstore have no book. User can add books to the bookstore via search box.
-
-Book will not be shown if there is no copy(0) of that book(out of stock).
 
 Using Python3.
 
@@ -69,6 +69,18 @@ Now you can run the sever:
 `python3 manage.py runserver`
 
 hurray! you app is running on: http://127.0.0.1:8000/
+
+### Contributing Guides
+
+It has a simple structure.
+
+For configuration issues or information, you should go through `settings.py`.
+
+For feature implementation or function issue, go through `views.py`.
+
+For template issues, go through `booklist.html` and `main.css`.
+
+For database or model information, go through `models.py`.
 
 **Live Demo**
 
